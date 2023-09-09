@@ -4,17 +4,20 @@ export default class HomeClass extends Component {
 
   state = {
     users: [],
+    isLoading: true,
   }
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(data => {
-
         this.setState({
-          users: data
+          users: data,
+          isLoading: false
         });
         console.log(data)
+      }).catch(() => {
+    
       });
   }
 
@@ -23,11 +26,16 @@ export default class HomeClass extends Component {
     return (
       <div>
 
-        {this.state.users.map((val, key) => {
-          return <div key={key}>
-            <p>{val.email}</p>
-          </div>;
-        })}
+        {this.state.isLoading == true ? (<div>{''}<h2>Loading .......</h2></div>) : (<div>
+
+          {this.state.users.map((val, key) => {
+            return <div key={key}>
+              <p>{val.email}</p>
+            </div>;
+          })}
+        </div>)}
+
+
 
       </div>
     )
