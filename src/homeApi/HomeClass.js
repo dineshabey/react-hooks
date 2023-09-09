@@ -17,7 +17,10 @@ export default class HomeClass extends Component {
         });
         console.log(data)
       }).catch(() => {
-    
+        this.setState({
+          users: [],
+          isLoading: false,
+        })
       });
   }
 
@@ -26,14 +29,21 @@ export default class HomeClass extends Component {
     return (
       <div>
 
-        {this.state.isLoading == true ? (<div>{''}<h2>Loading .......</h2></div>) : (<div>
+        {this.state.isLoading == true ?
+          (<div>{''}<h2>Loading .......</h2>{''}</div>)
+          : (<div> {this.state.users.length > 0 ? (
+            this.state.users.map((val, key) => {
+              return <div key={key}>
+                <p>{val.email}</p>
+              </div>;
+            })
+          ) : (<div>
+            <p>No users found !</p>
+          </div>)}
 
-          {this.state.users.map((val, key) => {
-            return <div key={key}>
-              <p>{val.email}</p>
-            </div>;
-          })}
-        </div>)}
+
+
+          </div>)}
 
 
 
