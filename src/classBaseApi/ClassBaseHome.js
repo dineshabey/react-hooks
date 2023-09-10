@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class HomeClass extends Component {
+export default class ClassBaseHome extends Component {
 
   state = {
     users: [],
@@ -15,7 +15,7 @@ export default class HomeClass extends Component {
           users: data,
           isLoading: false
         });
-        console.log(data)
+        // console.log(data)
       }).catch(() => {
         this.setState({
           users: [],
@@ -28,7 +28,8 @@ export default class HomeClass extends Component {
   render() {
     return (
       <div>
-
+        <h1>Class Base API Call</h1>
+        <hr />
         {this.state.isLoading == true ?
           (<div>{''}<h2>Loading .......</h2>{''}</div>)
           : (<div> {this.state.users.length > 0 ? (
