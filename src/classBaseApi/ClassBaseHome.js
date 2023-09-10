@@ -41,13 +41,7 @@ export default class ClassBaseHome extends Component {
           ) : (<div>
             <p>No users found !</p>
           </div>)}
-
-
-
           </div>)}
-
-
-
       </div>
     )
   }
