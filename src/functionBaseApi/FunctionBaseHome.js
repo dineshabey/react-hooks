@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export default function FunctionBaseHome() {
     const [users, setUsers] = useState([]);
+    const [isLoding, setisLoding] = useState(true);
 
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
@@ -14,6 +15,7 @@ export default function FunctionBaseHome() {
             //     isLoading: false
             // });
             // console.log(data)
+            setisLoding(false);
         }).catch(() => {
             // this.setState({
             //     users: [],
@@ -26,15 +28,16 @@ export default function FunctionBaseHome() {
         <div>
             <h1>Function Base API Call</h1>
             <hr />
-
-            <div>
-                {users.map((val, key) => {
-
+            {isLoding === true ? (
+                <div>
+                    <h2>Loading .......</h2>
+                </div>
+            ) : users.length > 0 ? (
+                users.map((val, key) => {
                     return (<p key={key}>{val.email}</p>);
-
-                })}
-            </div>
-
+                })
+            ) : (<p>No data found !</p>)}
         </div>
     )
 }
+
