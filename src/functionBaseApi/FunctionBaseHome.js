@@ -1,28 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function FunctionBaseHome() {
     const [users, setUsers] = useState([]);
     const [isLoding, setisLoding] = useState(true);
-
-    fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(data => {
+    const [test, useTest] = useState(false);
 
 
-            setUsers(data);
-            // this.setState({
-            //     users: data,
-            //     isLoading: false
-            // });
-            // console.log(data)
-            setisLoding(false);
-        }).catch(() => {
-            // this.setState({
-            //     users: [],
-            //     isLoading: false,
-            // })
-        });
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+                setUsers(data);
+                // console.log(data)
+                setisLoding(false);
+            }).catch(() => {
 
+            });
+    }, [])
 
     return (
         <div>
