@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 export default function FunctionBaseHome() {
     const [users, setUsers] = useState([]);
     const [isLoding, setisLoding] = useState(true);
-    const [test, useTest] = useState(false);
 
+   
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -31,6 +31,8 @@ export default function FunctionBaseHome() {
                     return (<p key={key}>{val.email}</p>);
                 })
             ) : (<p>No data found !</p>)}
+
+         
         </div>
     )
 }
