@@ -5,7 +5,7 @@ export default class ClassBaseHome extends Component {
   state = {
     users: [],
     isLoading: true,
-    email: 'ds',
+    email: '',
   }
 
 
@@ -28,7 +28,9 @@ export default class ClassBaseHome extends Component {
   }
 
   handleMoreDetails(email) {
-    console.log(email)
+    this.setState({
+      email: email
+    });
   }
 
   render() {
