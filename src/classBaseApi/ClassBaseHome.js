@@ -51,11 +51,18 @@ export default class ClassBaseHome extends Component {
             <p>No users found !</p>
           </div>)}
           </div>)}
-        <div style={{ background: 'green' }}>
+
+        {Object.keys(this.state.selectedUser).length > 0  ? (
+          <div style={{ background: 'green' }}>
           <h2>{this.state.selectedUser.name}</h2>
           <h2>Email : {this.state.selectedUser.email}</h2>
           <h2>Address : {this.state.selectedUser.address?.city}</h2>
         </div>
+        ):(
+          ''
+        )}
+
+     
 
 
       </div>
