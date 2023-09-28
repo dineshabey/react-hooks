@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ClassBaseHome from './classBaseApi/ClassBaseHome'
 import FunctionBaseHome from './functionBaseApi/FunctionBaseHome'
 import UserInformationLayouts from './functionBaseApi/UserInformationLayouts'
+import UserInformatioClass from './UserInformatioClass'
 
 export default class App extends Component {
   render() {
@@ -11,7 +12,9 @@ export default class App extends Component {
         <hr />
         {/* <FunctionBaseHome /> */}
 
-        <UserInformationLayouts/>
+        {/* <UserInformationLayouts/> */}
+
+        <UserInformatioClass />
 
       </div>
     )
