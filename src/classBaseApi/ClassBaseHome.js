@@ -1,4 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+function getRandomColor() {
+  const letters = "0123456789ABCDEF"; // Hexadecimal characters
+  let color = "#";
+
+  // Generate a 6-digit random hexadecimal color code
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+
+  return color;
+}
+
+
+
+
 
 export default class ClassBaseHome extends Component {
 
@@ -34,6 +49,8 @@ export default class ClassBaseHome extends Component {
     });
   }
 
+
+
   render() {
     return (
       <div>
@@ -52,19 +69,18 @@ export default class ClassBaseHome extends Component {
           </div>)}
           </div>)}
 
-        {Object.keys(this.state.selectedUser).length > 0  ? (
-          <div style={{ background: 'green' }}>
-          <h2>{this.state.selectedUser.name}</h2>
-          <h2>Email : {this.state.selectedUser.email}</h2>
-          <h2>Address : {this.state.selectedUser.address?.city}</h2>
+        <div style={{ background: getRandomColor(),color:'white' }}>
+          {Object.keys(this.state.selectedUser).length > 0 ? (
+            <div>
+              {''}
+              <h2>{this.state.selectedUser.name}</h2>
+              <h2>Email : {this.state.selectedUser.email}</h2>
+              <h2>Address : {this.state.selectedUser.address?.city}</h2>
+            </div>
+          ) : (
+            <h2>Information will be shown</h2>
+          )}
         </div>
-        ):(
-          ''
-        )}
-
-     
-
-
       </div>
     )
   }
