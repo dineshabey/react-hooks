@@ -5,7 +5,7 @@ export default class ClassBaseHome extends Component {
   state = {
     users: [],
     isLoading: true,
-    email: '',
+    selectedUser: '',
   }
 
 
@@ -27,9 +27,10 @@ export default class ClassBaseHome extends Component {
       });
   }
 
-  handleMoreDetails(email) {
+  handleMoreDetails(selectedUser) {
+    console.log(selectedUser)
     this.setState({
-      email: email
+      selectedUser: selectedUser
     });
   }
 
@@ -43,15 +44,17 @@ export default class ClassBaseHome extends Component {
           : (<div> {this.state.users.length > 0 ? (
             this.state.users.map((val, key) => {
               return <div key={key} style={{ padding: '5px' }}><p>{val.email}</p>
-                <button onClick={() => this.handleMoreDetails(val.email)} style={{ fontSize: '15px' }}>More details</button>
+                <button onClick={() => this.handleMoreDetails(val)} style={{ fontSize: '15px' }}>More details</button>
               </div>;
             })
           ) : (<div>
             <p>No users found !</p>
           </div>)}
           </div>)}
-        <div style={{ background: 'yellow' }}>
-          <h2>{this.state.email}</h2>
+        <div style={{ background: 'green' }}>
+          <h2>{this.state.selectedUser.name}</h2>
+          <h2>Email : {this.state.selectedUser.email}</h2>
+          <h2>Address : {this.state.selectedUser.address?.city}</h2>
         </div>
 
 
