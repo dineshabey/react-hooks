@@ -21,6 +21,7 @@ export default class ClassBaseHome extends Component {
     users: [],
     isLoading: true,
     selectedUser: '',
+    bgColor: 'teal',
   }
 
 
@@ -42,8 +43,24 @@ export default class ClassBaseHome extends Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    // we can check what update
+    //if the selected user change,we need to update the color
+
+    console.log('componentDidUpdate');
+    console.log(prevState.selectedUser.id);
+    console.log(this.state.selectedUser.id);
+
+
+    if (prevState.selectedUser.id !== this.state.selectedUser.id) {
+      this.setState({
+        bgColor: getRandomColor(),
+      });
+    }
+  }
+
   handleMoreDetails(selectedUser) {
-    console.log(selectedUser)
+    // console.log(selectedUser)
     this.setState({
       selectedUser: selectedUser
     });
@@ -69,7 +86,7 @@ export default class ClassBaseHome extends Component {
           </div>)}
           </div>)}
 
-        <div style={{ background: getRandomColor(),color:'white' }}>
+        <div style={{ background: this.state.bgColor, color: 'white' }}>
           {Object.keys(this.state.selectedUser).length > 0 ? (
             <div>
               {''}
