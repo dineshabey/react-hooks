@@ -5,7 +5,10 @@ export default class ClassBaseHome extends Component {
   state = {
     users: [],
     isLoading: true,
+    email: 'ds',
   }
+
+
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -24,6 +27,9 @@ export default class ClassBaseHome extends Component {
       });
   }
 
+  handleMoreDetails(email) {
+    console.log(email)
+  }
 
   render() {
     return (
@@ -34,14 +40,19 @@ export default class ClassBaseHome extends Component {
           (<div>{''}<h2>Loading .......</h2>{''}</div>)
           : (<div> {this.state.users.length > 0 ? (
             this.state.users.map((val, key) => {
-              return <div key={key}>
-                <p>{val.email}</p>
+              return <div key={key} style={{ padding: '5px' }}><p>{val.email}</p>
+                <button onClick={() => this.handleMoreDetails(val.email)} style={{ fontSize: '15px' }}>More details</button>
               </div>;
             })
           ) : (<div>
             <p>No users found !</p>
           </div>)}
           </div>)}
+        <div style={{ background: 'yellow' }}>
+          <h2>{this.state.email}</h2>
+        </div>
+
+
       </div>
     )
   }
