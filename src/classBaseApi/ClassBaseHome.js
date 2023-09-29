@@ -22,6 +22,7 @@ export default class ClassBaseHome extends Component {
     isLoading: true,
     selectedUser: '',
     bgColor: 'teal',
+    count: 0,
   }
 
 
@@ -98,6 +99,10 @@ export default class ClassBaseHome extends Component {
             <h2>Information will be shown</h2>
           )}
         </div>
+        <br />
+        <p>{this.state.count}</p>
+
+        <button onClick={() => { this.setState({ count: this.state.count + 1 }) }}>count +</button>
       </div>
     )
   }
