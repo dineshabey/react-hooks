@@ -53,7 +53,7 @@ export default class ClassBaseHome extends Component {
     console.log(this.state.selectedUser.id);
 
 
-    if (prevState.selectedUser.id !== this.state.selectedUser.id) {
+    if (prevState.selectedUser.id !== this.state.selectedUser.id || prevState.count !== this.state.count) {
       this.setState({
         bgColor: getRandomColor(),
       });
