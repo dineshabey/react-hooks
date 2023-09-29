@@ -8,9 +8,9 @@ export default class App extends Component {
   render() {
     return (
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <ClassBaseHome />
+        {/* <ClassBaseHome /> */}
         <hr />
-        {/* <FunctionBaseHome /> */}
+        <FunctionBaseHome />
 
         {/* <UserInformationLayouts/> */}
 
