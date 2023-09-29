@@ -30,6 +30,12 @@ export default function UserInformationLayouts() {
             setCount2(count2 + count);
         }, );
 
+         2.2 - variyant 1 (we use this)
+        useEffect(() => {
+            console.log('component did mount')
+            setCount2(count2 + count);
+        },[dependency] );
+
 
 
     3. component will unmount
